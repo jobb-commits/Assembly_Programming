@@ -38,4 +38,4 @@ screenshots/
 
 ## Author
 
-jobb commits
+Ayub
