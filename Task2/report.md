@@ -27,7 +27,7 @@ mov rbx, count
 
 ---
 
-#  Comparison with C/Python
+#3.  Comparison with C/Python
 
 ```markdown
 ## Comparison with C and Python Indexing
