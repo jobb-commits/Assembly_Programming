@@ -8,6 +8,10 @@ count equ 10
 highest db 0
 lowest  db 100
 average dq 0
+failCount          db 0
+passCount          db 0
+creditCount        db 0
+distinctionCount   db 0
 
 total dq 0
 
@@ -42,9 +46,37 @@ check_lowest:
     ; ----- Lowest -----
 
     cmp bl, [lowest]
-    jge continue_loop
+    jge classify
 
     mov [lowest], bl
+
+classify:
+
+    ; ----- Classification -----
+
+    cmp bl, 40
+    jl is_fail
+
+    cmp bl, 50
+    jl is_pass
+
+    cmp bl, 70
+    jl is_credit
+
+    inc byte [distinctionCount]
+    jmp continue_loop
+
+is_fail:
+    inc byte [failCount]
+    jmp continue_loop
+
+is_pass:
+    inc byte [passCount]
+    jmp continue_loop
+
+is_credit:
+    inc byte [creditCount]
+jmp continue_loop
 
 continue_loop:
 
