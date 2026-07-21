@@ -1,5 +1,5 @@
-; Task 2 - Student Marks Processor
-; Version 1 - Calculate Total
+; Task 2 - Version 2
+; Calculate the total of 10 student marks
 
 section .data
 
@@ -13,21 +13,24 @@ global _start
 
 _start:
 
-    xor rax, rax        ; running total
-    xor rcx, rcx        ; array index
+    xor rax, rax          ; total = 0
+    xor rcx, rcx          ; index = 0
 
-sum_loop:
+loop_marks:
 
     cmp rcx, count
-    jge finished
+    jge done
 
+    ; Load current mark into RBX
     movzx rbx, byte [marks + rcx]
+
+    ; Add mark to total
     add rax, rbx
 
     inc rcx
-    jmp sum_loop
+    jmp loop_marks
 
-finished:
+done:
 
     mov [total], rax
 
