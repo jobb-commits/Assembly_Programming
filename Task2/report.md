@@ -19,17 +19,9 @@
 
 Immediate addressing uses a constant value directly in an instruction.
 
-Example:
-
-```asm
-mov rbx, count
-
-
 ---
 
-#3.  Comparison with C/Python
-
-```markdown
+##3.  Comparison with C/Python
 ## Comparison with C and Python Indexing
 
 Assembly language requires the programmer to manually access array elements using memory addresses and registers. In this program, indexed addressing is achieved using `marks + rcx`, where RCX stores the current index.
